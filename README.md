@@ -38,6 +38,8 @@ python3 main.py
 
 Once executed, the program will clear your screen and present a clean list of all identified network interfaces along with their respective IP addresses.
 
+<img width="340" height="146" alt="image" src="https://github.com/user-attachments/assets/d0233b8c-e9f8-49bb-9c08-ac1a5028de40" />
+
 ---
 
 ## Troubleshooting
