@@ -14,6 +14,8 @@ First, you need to get the files onto your computer:
 * Select **"Download ZIP"**.
 * Extract the downloaded ZIP file into a folder of your choice.
 
+<img width="670" height="435" alt="image" src="https://github.com/user-attachments/assets/5218efbf-ded2-48c1-9a62-8d9d1d5c6dc2" />
+
 ### 2. Open Your Terminal
 Open the command line terminal inside the extracted folder:
 * **Windows:** Hold `Shift`, right-click inside the folder, and select **"Open PowerShell window here"** or **"Open in Terminal"**.
