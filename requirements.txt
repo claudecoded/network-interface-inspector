@@ -1,1 +1,1 @@
-netifaces==0.11.0
+netifaces-plus==0.11.2
