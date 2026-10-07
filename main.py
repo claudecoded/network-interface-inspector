@@ -2,12 +2,13 @@ import os
 import sys
 import subprocess
 
-# Automatically verify and install dependency if missing
+# Automatically verify and install the modern compatible dependency if missing
 try:
     import netifaces as ni
 except ImportError:
-    print("[INFO] Dependency 'netifaces' not found. Installing now...")
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "netifaces"])
+    print("[INFO] Dependency 'netifaces' not found. Installing compatible version 'netifaces-plus'...")
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "netifaces-plus"])
+    # Map the modern package to the standard 'ni' alias
     import netifaces as ni
 
 def clear_terminal():
@@ -35,15 +36,15 @@ def inspect_network_interfaces():
             # Check if an IPv4 configuration (AF_INET) exists for this interface
             if ni.AF_INET in addresses:
                 # Extract the primary IP address dictionary
-                ipv4_info = addresses[ni.AF_INET][0]
-                ip_address = ipv4_info.get("addr")
+                ipv4_info = addresses[ni.AF_INET]
+                # Some versions return a list of dicts, handle both safely
+                if isinstance(ipv4_info, list):
+                    ip_address = ipv4_info[0].get("addr")
+                else:
+                    ip_address = ipv4_info.get("addr")
                 
                 if ip_address:
                     print(f"   IP : {ip_address}")
-            else:
-                # Silently skip interfaces with no active IPv4 configuration
-                pass
-                
         except (ValueError, KeyError, IndexError):
             # Safe boundary catch to prevent crashes on protected or virtual system interfaces
             pass
